@@ -21,7 +21,23 @@ weekly_pay = hours_worked * pay_rate;
  FALSE
  NULL
  
- ## Spaces/Tabs/Lines/Indents
+## Methods/Functions
+Visibility **MUST** be declared on all methods
+**okay**
+```php
+    public function getStudent()
+    {
+        
+    }
+```
+**not okay**
+```php
+    function getStudent()
+    {
+        
+    }
+```
+## Spaces/Tabs/Lines/Indents
  
- ## Flies
+## Flies
  
