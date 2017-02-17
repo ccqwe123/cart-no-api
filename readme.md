@@ -4,21 +4,22 @@ Please follow the following conventions
 ## Names
 please be specific in giving variable names
 
-**okay**
+**OKAY**
 
 * weekly_pay = hours_worked * pay_rate;
 
-**not okay**
+**NOT OKAY**
 
 * a = b * c;
 
 php keywords **MUST** be in lower case
  
- **okay**
+ **OKAY**
  * true
  * false
  * null
- **not okay**
+
+ **NOT OKAY**
  * TRUE
  * FALSE
  * NULL
@@ -26,7 +27,7 @@ php keywords **MUST** be in lower case
 ## Methods/Functions
 Visibility **MUST** be declared on all methods
 
-**okay**
+**OKAY**
 ```php
     public function getStudent()
     {
@@ -34,7 +35,7 @@ Visibility **MUST** be declared on all methods
     }
 ```
 
-**not okay**
+**NOT OKAY**
 ```php
     function getStudent()
     {
