@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::auth();
+
+Route::get('/', 'HomeController@index');
+
+Route::get('/product/{name}', function() {
+	return view('products.view_product');
 });
