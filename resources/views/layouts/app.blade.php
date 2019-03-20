@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
     <!-- Styles -->
     <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
     <style>
         
@@ -104,31 +105,31 @@
     }
 @media (min-width: 1200px) {
   .container {
-
+    width: 100%;
   }
 }
 </style>
 </head>
 <body id="app-layout" style="background-color: #eff0f5;">
-<nav class="navbar navbar-default">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><span><img src="https://i.imgur.com/TpWQH9c.png" height="24"/></span> sketch<span class="text-danger">U</span>cation</a>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><span><img src="https://i.imgur.com/TpWQH9c.png" height="24"/></span> sketch<span class="text-danger">U</span>cation</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
         <li class=""><a href="/" style="text-align: center;">Home</a></li>
         <li class=""><a href="/" style="text-align: center;">Profile</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
         @if (Auth::guest())
         <li>
             <p class="navbar-btn">
@@ -142,71 +143,71 @@
             </p>
         </li>
         @else
-         <li class="dropdown" style="text-align: center;">
+        <li class="dropdown" style="text-align: center;">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF5722;">
                 <i class="fa fa-user" aria-hidden="true"></i></i><span class="badge bellball" style="background-color: #43e4d7; color:#2b3648;"></span>
             </a>
             <ul class="dropdown-menu notf" style="padding-top: 15px;width: 100px; max-height: 300px; overflow: auto;">
                 <li class="">
                     <a href="#" style="padding: 0px;">
-                    <div class="row" style="border-bottom: 1px solid #e1e1e1; margin:0; padding: 5px 3px">
-                        <div class="col-md-2" style=" padding-right:0; padding-top: 5px">
-                            <img class="" src="{{ asset('uploads/sample.png') }}" style="max-height:40px;">
-                        </div>
+                        <div class="row" style="border-bottom: 1px solid #e1e1e1; margin:0; padding: 5px 3px">
+                            <div class="col-md-2" style=" padding-right:0; padding-top: 5px">
+                                <img class="" src="{{ asset('uploads/sample.png') }}" style="max-height:40px;">
+                            </div>
 
-                        <div class="col-md-10">
-                            <span style="font-size: 11px; font-weight: normal;">Announcement</span>
-                            <h6 style="font-size: 11px;"><b>testing</b></h6>
-                            <span class="pull-right text-muted" style="font-weight: normal; font-size: 9px; padding: 0px; margin: 0px;"></span>
+                            <div class="col-md-10">
+                                <span style="font-size: 11px; font-weight: normal;">Announcement</span>
+                                <h6 style="font-size: 11px;"><b>testing</b></h6>
+                                <span class="pull-right text-muted" style="font-weight: normal; font-size: 9px; padding: 0px; margin: 0px;"></span>
+                            </div>
                         </div>
-                    </div>
-                 </a>
+                    </a>
                 </li>
             </ul>
             
         </li>
-         <li class="dropdown" style="text-align: center;">
+        <li class="dropdown" style="text-align: center;">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #FF5722;">
                 <i class="fa fa-envelope" aria-hidden="true"></i><span class="badge bellball" style="background-color: #43e4d7; color:#2b3648;"></span>
             </a>
             <ul class="dropdown-menu notf" style="padding-top: 15px;width: 100px; max-height: 300px; overflow: auto;">
                 <li class="">
                     <a href="#" style="padding: 0px;">
-                    <div class="row" style="border-bottom: 1px solid #e1e1e1; margin:0; padding: 5px 3px">
-                        <div class="col-md-2" style=" padding-right:0; padding-top: 5px">
-                            <img class="" src="{{ asset('uploads/sample.png') }}" style="max-height:40px;">
-                        </div>
+                        <div class="row" style="border-bottom: 1px solid #e1e1e1; margin:0; padding: 5px 3px">
+                            <div class="col-md-2" style=" padding-right:0; padding-top: 5px">
+                                <img class="" src="{{ asset('uploads/sample.png') }}" style="max-height:40px;">
+                            </div>
 
-                        <div class="col-md-10">
-                            <span style="font-size: 11px; font-weight: normal;">Announcement</span>
-                            <h6 style="font-size: 11px;"><b>testing</b></h6>
-                            <span class="pull-right text-muted" style="font-weight: normal; font-size: 9px; padding: 0px; margin: 0px;"></span>
+                            <div class="col-md-10">
+                                <span style="font-size: 11px; font-weight: normal;">Announcement</span>
+                                <h6 style="font-size: 11px;"><b>testing</b></h6>
+                                <span class="pull-right text-muted" style="font-weight: normal; font-size: 9px; padding: 0px; margin: 0px;"></span>
+                            </div>
                         </div>
-                    </div>
-                 </a>
+                    </a>
                 </li>
             </ul>
         </li>
 
-            <li class="dropdown" style="text-align: center;" id="noti_Container">
+        <li class="dropdown" style="text-align: center;" id="noti_Container">
             <a href="#" class="dropdown-toggle testt" data-toggle="dropdown" style="color: #FF5722;">
                 <i class="fa fa-bell"></i><span class="badge bellball" style="background-color: #43e4d7; color:#2b3648;"></span>
             </a>
             <ul class="dropdown-menu notf" style="padding-top: 15px;width: 100px; max-height: 300px; overflow: auto;">
                 <li class="">
                     <a href="#" style="padding: 0px;">
-                    <div class="row" style="border-bottom: 1px solid #e1e1e1; margin:0; padding: 5px 3px">
-                        <div class="col-md-2" style=" padding-right:0; padding-top: 5px">
-                            <img class="" src="{{ asset('uploads/sample.png') }}" style="max-height:40px;">
-                        </div>
+                        <div class="row" style="border-bottom: 1px solid #e1e1e1; margin:0; padding: 5px 3px">
+                            <div class="col-md-2" style=" padding-right:0; padding-top: 5px">
+                                <img class="" src="{{ asset('uploads/sample.png') }}" style="max-height:40px;">
+                            </div>
 
-                        <div class="col-md-10">
-                            <span style="font-size: 11px; font-weight: normal;">Announcement</span>
-                            <h6 style="font-size: 11px;"><b>testing</b></h6>
-                            <span class="pull-right text-muted" style="font-weight: normal; font-size: 9px; padding: 0px; margin: 0px;"></span>
+                            <div class="col-md-10">
+                                <span style="font-size: 11px; font-weight: normal;">Announcement</span>
+                                <h6 style="font-size: 11px;"><b>testing</b></h6>
+                                <span class="pull-right text-muted" style="font-weight: normal; font-size: 9px; padding: 0px; margin: 0px;"></span>
+                            </div>
                         </div>
-                    </div>
-                 </a>
+                    </a>
                 </li>
             </ul>
             <div id="notifications">
@@ -226,75 +227,44 @@
             </div>
             <div class="seeAll"><a href="#">See All</a></div>
         </div>
-        <li><button type="button" class="btn btn-danger outline btn-block btn-margin-right navbar-btn btn-block" style=""><i class="fa fa-shopping-bag" aria-hidden="true"></i> &nbsp;Sell Products</button>
+        <li><button type="button" class="btn btn-danger outline btn-block btn-margin-right navbar-btn btn-block" onclick="location.href='{{ url('/sell-product') }}'"><i class="fa fa-shopping-bag" aria-hidden="true"></i> &nbsp;Sell Products</button>
         </li>
         <li class="dropdown" style="text-align: center;">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/images/design.jpg" class="img-circle" style="height: 20px; margin-right: 10px;"/>{{ Auth::user()->first_name }}<span class="caret"></span></a>
             <ul class="dropdown-menu">
+                <li><a href="{{ url('/profile') }}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> My Wishlist</a></li>
                 <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Account Settings</a></li>
                 <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
             </ul>
         </li>
         @endif
     </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
 </nav>
 
+@yield('content')
 
-
-    @yield('content')
-    
-    <!-- JavaScripts -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- JavaScripts -->
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>  
+<script src="{{ URL::asset('js/jquery.dataTables.min.js') }}"></script>  
 <!-- <script src="{{ URL::asset('js/angular.min.js') }}"></script>   -->
-    <!-- <script src="{{ URL::asset('js/app.js') }}"></script>  -->
-    <!-- <script src="{{ URL::asset('js/controllers.js') }}"></script>  -->
-    <!-- <script src="{{ URL::asset('js/constants.js') }}"></script>  -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
-    <script type="text/javascript">
-    $(document).ready(function () {
+<!-- <script src="{{ URL::asset('js/app.js') }}"></script>  -->
+<!-- <script src="{{ URL::asset('js/controllers.js') }}"></script>  -->
+<!-- <script src="{{ URL::asset('js/constants.js') }}"></script>  -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
+<script type="text/javascript">
 
-        // ANIMATEDLY DISPLAY THE NOTIFICATION COUNTER.
-        $('#noti_Counter')
-            .css({ opacity: 0 })
-            .text('7')  // ADD DYNAMIC VALUE (YOU CAN EXTRACT DATA FROM DATABASE OR XML).
-            .css({ top: '-10px' })
-            .animate({ top: '-2px', opacity: 1 }, 500);
+$(document).ready(function() {
+    var table = $('#table_id').DataTable( {
+        responsive: true
+    } );
+ 
+    new $.fn.dataTable.FixedHeader( table );
+} );
 
-        $('.testt').click(function () {
-
-            // TOGGLE (SHOW OR HIDE) NOTIFICATION WINDOW.
-            $('#notifications').fadeToggle('fast', 'linear', function () {
-                if ($('#notifications').is(':hidden')) {
-                    $('#noti_Button').css('background-color', '#2E467C');
-                }
-                // CHANGE BACKGROUND COLOR OF THE BUTTON.
-                else $('#noti_Button').css('background-color', '#FFF');
-            });
-
-            // $('#noti_Counter').fadeOut('slow');     // HIDE THE COUNTER.
-
-            return false;
-        });
-
-        // HIDE NOTIFICATIONS WHEN CLICKED ANYWHERE ON THE PAGE.
-        $(document).click(function () {
-            $('#notifications').hide();
-
-            // CHECK IF NOTIFICATION COUNTER IS HIDDEN.
-            if ($('#noti_Counter').is(':hidden')) {
-                // CHANGE BACKGROUND COLOR OF THE BUTTON.
-                $('#noti_Button').css('background-color', '#2E467C');
-            }
-        });
-
-        $('#notifications').click(function () {
-            return false;       // DO NOTHING WHEN CONTAINER IS CLICKED.
-        });
-    });
 </script>
 </body>
 </html>

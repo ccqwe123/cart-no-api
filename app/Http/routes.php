@@ -18,3 +18,9 @@ Route::get('/', 'HomeController@index');
 Route::get('/product/{name}', function() {
 	return view('products.view_product');
 });
+Route::get('/my-store', function() {
+	return view("users.store");
+});
+Route::get('/profile', function() {
+	return view("users.profile");
+});

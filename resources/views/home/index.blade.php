@@ -1,6 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Employee Profile') 
-
+@section('title', 'Welcome to E-lite Store') 
 @section('content')
 <style type="text/css">
 
@@ -77,6 +76,10 @@
   .panel-body
   {
      padding: 15px 15px 5px 15px !important;
+  }
+  div.support-menu
+  {
+    width: 100% !important;
   }
 </style>
 <div class="container-fluid">
