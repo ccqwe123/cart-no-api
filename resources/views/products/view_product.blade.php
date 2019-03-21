@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/view-product.css') }}">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <div class="container">
 	<div class="row">
 		<div class="col">
@@ -279,7 +278,7 @@
 	</div>
 </div>
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="{{ URL::asset('js/zoom-image.js') }}"></script>
 <script src="{{ URL::asset('js/main.js') }}"></script>

@@ -24,3 +24,6 @@ Route::get('/my-store', function() {
 Route::get('/profile', function() {
 	return view("users.profile");
 });
+Route::get('/sell-product', function() {
+	return view("products.add_product");
+});

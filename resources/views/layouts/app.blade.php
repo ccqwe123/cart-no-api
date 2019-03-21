@@ -263,7 +263,12 @@ $(document).ready(function() {
     } );
  
     new $.fn.dataTable.FixedHeader( table );
-} );
+    $('#summernote').summernote({
+      height: 200,
+      minHeight: null,
+      maxHeight: null
+        });
+});
 
 </script>
 </body>

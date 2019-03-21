@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Add Product') 
+@section('title', 'My Profile') 
 <style type="text/css">
 body, *
 {
@@ -168,7 +168,7 @@ ul.list-unstyled li:not(.li-wishlist) a:hover
 				<div class="col-md-12" style="background-color:white; width: 100%; margin:0; padding: 0px;">
 					<div class="panel panel-default">
 						<div class="panel-heading"><h4>My Products</h4>
-							<button class="btn btn-warning btn-xs add-product">Add Product</button>
+							<a href="{{ url('/sell-product') }}" class="btn btn-warning btn-xs add-product">Add Product</a>
 						</div>
 						<div class="panel-body table-responsive">
 							<table id="table_id" class="" style="width:100%; border:none;">

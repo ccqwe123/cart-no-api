@@ -18,6 +18,10 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('product_name');
             $table->text('product_description');
+            $table->text('price');
+            $table->text('payment_method');
+            $table->text('return_item');
+            $table->text('location');
             // $table->double('latitude');
             // $table->double('longitude');
             // $table->string('address');
