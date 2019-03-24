@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Roles;
+use App\Images;
 use App\UserRoles;
 use App\Products;
 use App\Privileges;
@@ -113,7 +114,7 @@ class ProductController extends Controller
     public function post_product(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'product_name' => 'required|unique:products|max:20|min:3',    
+            'product_name' => 'required|max:20|min:3',    
             'price' => 'required|max:100|min:1',    
             'location' => 'required|max:255|min:4', 
             'payment' => 'required', 
@@ -139,15 +140,18 @@ class ProductController extends Controller
         $x->status = '0';
         $x->save();
 
-
-        for ($i=0;$i<sizeof($request->file);$i++){
-                DB::table('images')
-                    ->insert([
-                        'product_id' => $x->id,
-                        'photo' => $request->file[$i],
-                    ]);
-            }
-
-
+        $files = $request->file('files');
+        if($request->hasfile('files')){ 
+            $destinationPath = public_path().'/uploads/products';
+            foreach($files as $file){
+                $image = new Images;
+                $filename = \Carbon\Carbon::now()->timestamp.$file->getClientOriginalName();
+                $file->move($destinationPath,$filename);
+                $image->photo = $filename;
+                $image->product_id = $x->id;
+                $image->save();
+                log::info($file);
+            } 
+        } 
     }
 }
