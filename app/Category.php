@@ -11,4 +11,9 @@ class Category extends Model
         'category_name',
     ];
     protected $table = 'category';
+    
+    public function products()
+    {
+        return $this->hasMany('App\Products');
+    }
 }

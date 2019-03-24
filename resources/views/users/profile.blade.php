@@ -72,6 +72,8 @@ li.li-title, li.li-wishlist
 	color: #FF5722;
 	font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
+	cursor: context-menu;
+	
 }
 ul.list-unstyled li:not(.li-wishlist) a
 {

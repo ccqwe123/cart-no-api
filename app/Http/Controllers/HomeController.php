@@ -27,4 +27,8 @@ class HomeController extends Controller
         $category = Category::get();
         return view('home.index',['category'=>$category]);
     }
+    public function errorpage()
+    {
+        return view('oops');
+    }
 }

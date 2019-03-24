@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Http\Requests;
 use Log;
-use \Statickidz\GoogleTranslate;
+// use \Statickidz\GoogleTranslate;
 class StudentController extends Controller
 {
     /**
@@ -26,14 +26,14 @@ class StudentController extends Controller
         return view('student_list',['variable'=>$variable]);
     }
     public function localedisplay($abc){
-        $variable = Student::get();
+        // $variable = Student::get();
         
-        $source = 'ph';
-        $target = $abc;
-        $text = $variable[0]->firstname;
-        $trans = new GoogleTranslate();
-        $result = $trans->translate($source, $target, $text);
-        return view('student_list',['variable'=>$variable, 'result' => $result]);
+        // $source = 'ph';
+        // $target = $abc;
+        // $text = $variable[0]->firstname;
+        // $trans = new GoogleTranslate();
+        // $result = $trans->translate($source, $target, $text);
+        // return view('student_list',['variable'=>$variable, 'result' => $result]);
     }
     /**
      * Show the form for creating a new resource.

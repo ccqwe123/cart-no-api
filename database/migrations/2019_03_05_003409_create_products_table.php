@@ -18,15 +18,16 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('product_name');
             $table->text('product_description');
-            $table->text('price');
-            $table->text('payment_method');
-            $table->text('return_item');
-            $table->text('location');
+            $table->decimal('price', 18, 4);
+            $table->string('payment_method');
+            $table->string('return_item');
+            $table->string('location');
             // $table->double('latitude');
             // $table->double('longitude');
             // $table->string('address');
             $table->enum('status', ['0','1'])->default('0');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -117,9 +117,12 @@
         <li><button type="button" class="btn btn-danger outline btn-block btn-margin-right navbar-btn btn-block" onclick="location.href='{{ url('/sell-product') }}'"><i class="fa fa-shopping-bag" aria-hidden="true"></i> &nbsp;Sell Products</button>
         </li>
         <li class="dropdown" style="text-align: center;">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/images/design.jpg" class="img-circle" style="height: 20px; margin-right: 10px;"/>{{ Auth::user()->first_name }}<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/images/design.jpg" class="img-circle" style="height: 20px; margin-right: 10px;"/>{{ Auth::user()->full_name }}<span class="caret"></span></a>
             <ul class="dropdown-menu">
+                @if(Session::get('is_superadmin_account')>0)
                 <li><a href="{{ url('/profile') }}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+                @endif
+                <li><a href="{{ url('/profile') }}"><i class="fa fa-user" aria-hidden="true"></i> Prof123ile</a></li>
                 <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> My Wishlist</a></li>
                 <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Account Settings</a></li>
                 <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>

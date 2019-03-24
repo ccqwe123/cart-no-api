@@ -121,8 +121,19 @@ h2.prod-title1391512031
 	color: #FF5722;
 	font-family: Arial, Helvetica, sans-serif;
 }
-.dropdown-menu {
-    background-color: #fff !important;
+@media (max-width: 992px)
+{
+	.col-md-12
+	{
+		margin-top:0px !important;
+	}
+}
+.form-group {
+	/*margin-bottom: 0px !important;*/
+}
+.errors
+{
+	position: absolute;
 }
 </style>
 @section('content')
@@ -168,20 +179,27 @@ h2.prod-title1391512031
 		</div>
 		<div class="col-md-10" style="height: 100%;">
 			<div class="row">
-				<div class="col-md-12" style="background-color:white;">
+				<div class="col-md-12" style="background-color:white; margin-top:-60px;">
 					<h2 class="prod-title1391512031">Add Product</h2>
 					<div class="row">
-						{{ Form::open(array('url' => '/employees', 'method' => 'store', 'enctype' => "multipart/form-data")) }}
+						{{ Form::open(array('url' => '/post-product', 'method' => 'store', 'enctype' => "multipart/form-data")) }}
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="product_name">Product Name:</label>
-								<input type="text" class="form-control" id="email" placeholder="Name of Product">
+								<input type="text" class="form-control" name="product_name" placeholder="Name of Product">
+								<input type="hidden" class="form-control" name="user_id" placeholder="Name of Product" value="{{ Auth::user()->id }}">
+								@if (count($errors) > 0)
+								<span class="errors" style="color:#FF0000">* {{$errors->first('product_name')}}</span>
+								@endif
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="price">Price:</label>
-								<input type="number" class="form-control" id="price" placeholder="0.00">
+								<input type="number" class="form-control" name="price" placeholder="0.00">
+								@if (count($errors) > 0)
+								<span class="errors" style="color:#FF0000">* {{$errors->first('price')}}</span>
+								@endif
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -223,10 +241,13 @@ h2.prod-title1391512031
 									<option value="San Mateo">San Mateo</option>
 									<option value="San Pablo">San Pablo</option>
 									<option value="Santa Maria<">Santa Maria</option>
-									<option value="Santiago">Santiago</option>
+									<option value="Santiago City">Santiago City</option>
 									<option value="Santo Tomas">Santo Tomas</option>
 									<option value="Tumauini">Tumauini</option>
 								</select>
+								@if (count($errors) > 0)
+								<span class="errors" style="color:#FF0000">* {{$errors->first('location')}}</span>
+								@endif
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -237,6 +258,9 @@ h2.prod-title1391512031
 									<option value="cod">Cash on Delivery</option>
 									<option value="meetup">Meetup</option>
 								</select>
+								@if (count($errors) > 0)
+								<span class="errors" style="color:#FF0000">* {{$errors->first('payment')}}</span>
+								@endif
 							</div>
 						</div>
 						<div class="col-md-6 meetme hidden">
@@ -248,29 +272,41 @@ h2.prod-title1391512031
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="category">Category:</label>
-								<select id="category" class="form-control">
+								<select id="category" class="form-control" name="category">
 									<option disabled selected value="">Select Category</option>
-									<option>2</option>
+									<option value="1">2</option>
 								</select>
+								@if (count($errors) > 0)
+								<span class="errors" style="color:#FF0000">* {{$errors->first('category')}}</span>
+								@endif
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="category">Return Product (days)</label>
 								<input type="number" name="returnproduct" class="form-control" placeholder="0 = Not returnable">
+								@if (count($errors) > 0)
+								<span class="errors" style="color:#FF0000">* {{$errors->first('returnproduct')}}</span>
+							@endif
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
 							<label for="description">Upload Image:</label>
-							<input type="file" id="files" name="files[]" class="form-control" multiple />
+							<input type="file" id="files" name="files[]" class="form-control" multiple accept="image/jpeg, image/png"/>
+							@if (count($errors) > 0)
+								<span class="errors" style="color:#FF0000">* {{$errors->first('files','Please upload atleast 1 image')}}</span>
+							@endif
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-12" style="margin-top:20px;">
 							<label for="description">Item Description</label>
 							<textarea class="input-block-level" id="summernote" name="description" id="description"></textarea>
+							@if (count($errors) > 0)
+								<span class="errors" style="color:#FF0000">* {{$errors->first('description')}}</span>
+							@endif
 						</div>
 					</div>	
 					<div class="row">

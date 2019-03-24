@@ -10,7 +10,8 @@
         "tymon/jwt-auth": "0.5.*",
         "barryvdh/laravel-cors": "^0.8.2",
         "laravelcollective/html": "^5.2.0",
-        "statickidz/php-google-translate-free": "^1.0"
+        "statickidz/php-google-translate-free": "^1.0",
+        "laravel-notification-channels/backport": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

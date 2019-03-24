@@ -1,3 +1,10 @@
+<?php
+header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -227,11 +234,16 @@
             </div>
             <div class="seeAll"><a href="#">See All</a></div>
         </div>
+        @if (Session::get('is_allow_add_product') > 0)
         <li><button type="button" class="btn btn-danger outline btn-block btn-margin-right navbar-btn btn-block" onclick="location.href='{{ url('/sell-product') }}'"><i class="fa fa-shopping-bag" aria-hidden="true"></i> &nbsp;Sell Products</button>
         </li>
+        @endif
         <li class="dropdown" style="text-align: center;">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/images/design.jpg" class="img-circle" style="height: 20px; margin-right: 10px;"/>{{ Auth::user()->first_name }}<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/images/design.jpg" class="img-circle" style="height: 20px; margin-right: 10px;"/>{{ Auth::user()->username }}<span class="caret"></span></a>
             <ul class="dropdown-menu">
+                @if (Session::get('is_superadmin_account') > 0)
+                <li><a href="{{ url('/admin') }}"><i class="fa fa-user" aria-hidden="true"></i> Admin Panel</a></li>
+                @endif
                 <li><a href="{{ url('/profile') }}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
                 <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> My Wishlist</a></li>
                 <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Account Settings</a></li>
