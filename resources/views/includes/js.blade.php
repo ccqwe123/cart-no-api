@@ -1,0 +1,23 @@
+{{Html::script('bower_components/jquery/dist/jquery.min.js')}}
+{{Html::script('bower_components/jquery-ui/jquery-ui.min.js')}}
+{{Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js')}}
+{{Html::script('dist/js/adminlte.min.js')}}
+{{Html::script('dist/js/pages/dashboard.js')}}
+{{Html::script('dist/js/demo.js')}}
+{{-- Html::script('sweetAlert/js/sweetalert.min.js') --}}
+{{Html::script('summernote/summernote.js')}}
+<script type="text/javascript">
+	$('#summernote').summernote({
+	  height: 200,
+	  minHeight: null,
+	  maxHeight: null
+		});
+	$('#summernote2').summernote({
+	  height: 200,
+	  minHeight: null,
+	  maxHeight: null
+		});
+</script>
+{{-- @include('sweet::alert') --}}
+
+@yield('js')
