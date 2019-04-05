@@ -31,4 +31,14 @@ class HomeController extends Controller
     {
         return view('oops');
     }
+     public function selling()
+    {
+        $category = Category::get();
+        return view('selling.product_list',['category'=>$category]);
+    }
+     public function buying()
+    {
+        $category = Category::get();
+        return view('buying.buy_list',['category'=>$category]);
+    }
 }

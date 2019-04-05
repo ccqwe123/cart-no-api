@@ -16,8 +16,8 @@ header("Pragma: no-cache");
     </head>
     <body class="hold-transition skin-blue fixed sidebar-mini layout-top-nav">
         @include('includes.nav')
-        <div class="content-wrapper" style="margin-left:230px">
-            @yield('body')
+        <div class="content-wrapper" style="">
+            @yield('content')
         </div>
         @include('includes.js')
     </body>

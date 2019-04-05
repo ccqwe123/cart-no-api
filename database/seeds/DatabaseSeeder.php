@@ -5,6 +5,7 @@ use App\User;
 use App\Privileges;
 use App\Roles;
 use App\UserRoles;
+use App\Locations;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
 			'full_name'	=>	'bornoks',
 			'address' => 'none',
 			'status' => '0',
+			'verified' => '1',
 			'contact_no'=>	'7493345',
 			'photo'=>	'anon.png',
 			]);
@@ -94,5 +96,6 @@ class DatabaseSeeder extends Seeder
 			'user_id' => $user->id,
 			'role_id' => $roles_super->id,
 			]);
+
     }
 }

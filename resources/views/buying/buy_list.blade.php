@@ -1,0 +1,1 @@
+buy_list.blade.php

@@ -15,6 +15,10 @@
 //home page
 Route::get('/user/verify/{token}', 'UserController@verifyUser')->name('user.verify');
 Route::get('/', 'HomeController@index');
+//selling page
+Route::get('/selling','HomeController@selling')->name('selling-products');
+//buying page
+Route::get('/buying','HomeController@buying')->name('buying-products');
 //authentication
 Route::get('/login', 'UserController@userLogin');
 Route::post('/auth', 'UserController@authenticate');
