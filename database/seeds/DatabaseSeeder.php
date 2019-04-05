@@ -96,6 +96,110 @@ class DatabaseSeeder extends Seeder
 			'user_id' => $user->id,
 			'role_id' => $roles_super->id,
 			]);
-
+         //locations
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Alicia',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Aurora',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Burgos',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Cabatuan',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Cauayan',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Cordon',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Dinapigue',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Echague',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Gamu',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Ilagan',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Jones',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Palanan',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Quezon',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Quirino',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Ramon',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Reina Mercedes',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Roxas',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'San Agustin',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'San Guillermo',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'San Isidro',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'San Manuel',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'San Mariano',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'San Mateo',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Santiago',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Santo Tomas',
+			]);
+         $locations = Locations::create([
+			'province' => 'Isabela',
+			'state' => 'Tumauini',
+			]);
     }
 }

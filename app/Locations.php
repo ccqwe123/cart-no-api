@@ -11,7 +11,7 @@ class Locations extends Model
         'province','state'
     ];
     protected $table = 'locations';
-    
+    protected $dates = ['deleted_at'];
     public function products()
     {
         return $this->hasOne('App\Products');

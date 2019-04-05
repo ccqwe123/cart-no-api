@@ -16,6 +16,7 @@ class CreateLocationsTable extends Migration
             $table->increments('id');
             $table->string('province');
             $table->string('state');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

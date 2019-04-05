@@ -147,7 +147,23 @@
   color: #757575;
     line-height: 16px;
 }
-.button {
+.location-height
+{
+   width:250px;
+      height:100%;
+      display:block; 
+      overflow:hidden;
+      word-break: break-word;
+      word-wrap: break-word;
+      margin-bottom:5px;
+}
+.location-height label
+{
+  font-size: 13px;
+  color: #757575;
+    line-height: 16px;
+}
+.button, .buttonlocation {
     margin-left:15px;
     font-family: Roboto-Medium;
     color: #1a9cb7;
@@ -159,6 +175,11 @@
     border-top: 1px solid #cecccc;
     margin:10px 0px;
   }
+  @media (max-width: 767px){
+.fixed .content-wrapper, .fixed .right-side {
+    padding-top: 40px;
+}
+}
 </style>
 <div class="container-fluid">
       <div class="row">
@@ -185,21 +206,21 @@
               <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;Location
             </div>
           </div>
-          <div class="category-height">
-           @foreach($category as $x)
+          <div class="location-height">
+           @foreach($locations as $x)
           <div class="checkbox checkbox-primary ">
-            <input id="{{$x->category_name}}" type="checkbox">
-            <label for="{{$x->category_name}}">
-              {{$x->category_name}}
+            <input id="{{$x->state}}" type="checkbox">
+            <label for="{{$x->state}}">
+              {{$x->state}}
             </label>
           </div>
           @endforeach
         </div>
-        <a class="button" href="#">VIEW MORE</a>
+        <a class="buttonlocation" href="#">VIEW MORE</a>
         </div>
         <div class="col-md-10">
-            <div class="panel panel-default">
-                <div class="panel-body"> <!--- panel body -->
+            <div class="box box-default">
+                <div class="box-body"> <!--- panel body -->
                     <!-- side bar -->
                     <div class="col-md-12">
                         <div class="row">
@@ -248,26 +269,44 @@
 @section('js')
 <script type="text/javascript">
 $(document).ready(function() {
-  var defaultHeight = 180;
-var text = $(".category-height");
-var textHeight = text[0].scrollHeight;
-var button = $(".button");
-text.css({"max-height": defaultHeight, "overflow": "hidden"});
-button.on("click", function(){
-  var newHeight = 0;
-  if (text.hasClass("active")) {
-    newHeight = defaultHeight;
-    text.removeClass("active");
-    button.text('VIEW MORE');
-  } else {
-    newHeight = textHeight;
-    text.addClass("active");
-    button.text('VIEW LESS');
-  }
-  text.animate({
-    "max-height": newHeight
-  }, 500);
-});
+    var defaultHeight = 180;
+    var text = $(".category-height");
+    var texts = $(".location-height");
+    var textHeight = text[0].scrollHeight;
+    var button = $(".button");
+    var buttons = $(".buttonlocation");
+      text.css({"max-height": defaultHeight, "overflow": "hidden"});
+      texts.css({"max-height": defaultHeight, "overflow": "hidden"});
+      button.on("click", function(){
+          var newHeight = 0;
+          if (text.hasClass("active")) {
+            newHeight = defaultHeight;
+            text.removeClass("active");
+            button.text('VIEW MORE');
+          } else {
+            newHeight = textHeight;
+            text.addClass("active");
+            button.text('VIEW LESS');
+          }
+      text.animate({
+        "max-height": newHeight
+        }, 500);
+      });
+      buttons.on("click", function(){
+          var newHeight = 0;
+          if (texts.hasClass("active")) {
+            newHeight = defaultHeight;
+            texts.removeClass("active");
+            buttons.text('VIEW MORE');
+          } else {
+            newHeight = textHeight;
+            texts.addClass("active");
+            buttons.text('VIEW LESS');
+          }
+      texts.animate({
+        "max-height": newHeight
+        }, 500);
+      });
 });
 </script>
 @endsection

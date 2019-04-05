@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Category;
+use App\Locations;
 class HomeController extends Controller
 {
     /**
@@ -33,8 +34,9 @@ class HomeController extends Controller
     }
      public function selling()
     {
+        $locations = Locations::orderBy('state','desc')->get();
         $category = Category::get();
-        return view('selling.product_list',['category'=>$category]);
+        return view('selling.product_list',['category'=>$category,'locations'=>$locations]);
     }
      public function buying()
     {
