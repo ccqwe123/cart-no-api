@@ -181,4 +181,12 @@ class UserController extends Controller
     }
     return redirect('/login')->with('status', $status);
     }
+    public function userinfo(Request $request)
+    {
+        return view("users.profile");
+    }
+    public function userdashboard(Request $request)
+    {
+        return view("users.user-dashboard");
+    }
 }

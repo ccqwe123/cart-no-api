@@ -31,7 +31,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
+        return view("users.profile");
     }
     public function adminindex()
     {
@@ -49,7 +49,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view("users.profile");
     }
 
     /**
@@ -58,6 +58,10 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function solditems(Request $request)
+    {
+        return view("users.profile");
+    }
     public function store(Request $request)
     {
         //
@@ -71,7 +75,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -103,6 +107,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function archive_product_list()
+    {
+        return view("users.profile");
+    }
     public function destroy($id)
     {
         //

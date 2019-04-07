@@ -15,16 +15,20 @@
 //home page
 Route::get('/user/verify/{token}', 'UserController@verifyUser')->name('user.verify');
 Route::get('/', 'HomeController@index');
+
 //selling page
 Route::get('/selling','HomeController@selling')->name('selling-products');
+
 //buying page
 Route::get('/buying','HomeController@buying')->name('buying-products');
+
 //authentication
 Route::get('/login', 'UserController@userLogin');
 Route::post('/auth', 'UserController@authenticate');
 Route::get('/logout', 'UserController@logout');
 Route::get('/register', 'UserController@reg');
 Route::post('/get-register', 'UserController@getreg');
+
 //page 404
 Route::get('/oops', 'HomeController@errorpage');
 
@@ -51,9 +55,23 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/my-store', function() {
 		return view("users.store");
 	});
-	Route::get('/profile', function() {
-		return view("users.profile");
-	});
-	Route::get('/sell-product', 'ProductController@sell_product');
-	Route::post('/post-product', 'ProductController@post_product');
+	//user manage account function
+	Route::get('/dashboard', 'UserController@userdashboard')->name('users.user_profile.dashboard');
+	Route::get('/personal-info', 'UserController@userinfo')->name('users.user_profile.info');
+	Route::get('/personal-address', 'UserController@userinfo')->name('users.user_profile.address');
+	Route::get('/personal-contact', 'UserController@userinfo')->name('users.user_profile.contact');
+	Route::get('/personal-social', 'UserController@userinfo')->name('users.user_profile.social');
+
+	//user product function
+	Route::get('/products/list', 'ProductController@index')->name('users.user_profile.product.list');
+		// sell product function
+		Route::get('/sell-product', 'ProductController@create')->name('users.user_profile.product.sell');
+		Route::post('/post-product', 'ProductController@post_product');
+	Route::get('/products/sold/list', 'ProductController@solditems')->name('users.user_profile.product.sold.list');
+	Route::get('/products/archive/list', 'ProductController@archive_product_list')->name('users.user_profile.product.archive.list');
+
+	//user Post job function
+	Route::resource('/jobs', 'JobsController');
+
+	Route::get('/profile', 'UserController@userprofile')->name('users.profile');
 });

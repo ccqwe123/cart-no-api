@@ -1,3 +1,4 @@
+<body class="hold-transition skin-blue fixed sidebar-mini layout-top-nav">
 <header class="main-header">
     <nav class="navbar navbar-static-top">
       <div class="container-fluid">
@@ -12,8 +13,7 @@
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
             <li class=""><a href="/">Home <span class="sr-only">(current)</span></a></li>
-            <li class=""><a href="/selling">Selling</a></li>
-            <li class=""><a href="/buying">Buying</a></li>
+            <li class=""><a href="/selling">Market</a></li>
             <li class=""><a href="/jobs">Search Jobs</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search">
@@ -158,10 +158,10 @@
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    <a href="{{route('users.user_profile.dashboard')}}" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                   </div>
                 </li>
               </ul>

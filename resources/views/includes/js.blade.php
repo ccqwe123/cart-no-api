@@ -5,11 +5,14 @@
 {{Html::script('dist/js/pages/dashboard.js')}}
 {{Html::script('dist/js/demo.js')}}
 {{-- Html::script('sweetAlert/js/sweetalert.min.js') --}}
-{{Html::script('summernote/summernote.js')}}
+{{Html::script('js/summernote.js')}}
 <script type="text/javascript">
 	$('#summernote').summernote({
-	  height: 200,
+	  height: 150,
 	  minHeight: null,
+	  toolbar: [
+            [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'clear'] ],
+        ],
 	  maxHeight: null
 		});
 	$('#summernote2').summernote({

@@ -21,7 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('photo')->default('anon.png');
             $table->enum('status', ['0','1'])->default('0');
             $table->string('contact_no')->nullable();
+            $table->string('gender')->nullable();
             $table->string('password');
+            $table->date('birthday');
             $table->boolean('verified')->default(false);
             $table->rememberToken();
             $table->timestamps();

@@ -149,7 +149,7 @@
 }
 .location-height
 {
-   width:250px;
+      width:250px;
       height:100%;
       display:block; 
       overflow:hidden;
@@ -180,8 +180,17 @@
     padding-top: 40px;
 }
 }
+@media (min-width: 1200px){
+.container {
+    width: 1470px;
+
+  }
+}
+.box{
+    margin-bottom:7px;
+  }
 </style>
-<div class="container-fluid">
+<div class="container">
       <div class="row">
         <div class="col-md-2">
           <div class="pcategory">
@@ -218,7 +227,21 @@
         </div>
         <a class="buttonlocation" href="#">VIEW MORE</a>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10" style="margin-top:20px;">
+            <div class="box box-default">
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="box box-default">
                 <div class="box-body"> <!--- panel body -->
                     <!-- side bar -->
@@ -229,11 +252,11 @@
                                   <div class="panel-header">
                                     <a href="#"><img src="./images/design.jpg" class="img-responsive"/></a>
                                 </div>
+                                <?php
+                                  $tet = "google here";
+                                ?>
                                 <div class="panel-body">
                                     <div class="product-title">
-                                      <?php
-                                      $tet = "google here";
-                                      ?>
                                     <a href="/product/<?php echo str_slug($tet, '-'); ?>"><span style="">AVISION 55" FULL HD SMART DIGITAL LED TV 55K786 w/ free wall bracketFULL HD SMART DIGITAL LED TV 55K786 w/ free wall bracket </span></a>
                                     </div>
                                     <span class="product-location">Santiago City</span>
@@ -270,13 +293,15 @@
 <script type="text/javascript">
 $(document).ready(function() {
     var defaultHeight = 180;
+    var defaultHeightt = 197;
     var text = $(".category-height");
     var texts = $(".location-height");
     var textHeight = text[0].scrollHeight;
+    var textHeightt = texts[0].scrollHeight;
     var button = $(".button");
     var buttons = $(".buttonlocation");
       text.css({"max-height": defaultHeight, "overflow": "hidden"});
-      texts.css({"max-height": defaultHeight, "overflow": "hidden"});
+      texts.css({"max-height": defaultHeightt, "overflow": "hidden"});
       button.on("click", function(){
           var newHeight = 0;
           if (text.hasClass("active")) {
@@ -299,7 +324,7 @@ $(document).ready(function() {
             texts.removeClass("active");
             buttons.text('VIEW MORE');
           } else {
-            newHeight = textHeight;
+            newHeight = textHeightt;
             texts.addClass("active");
             buttons.text('VIEW LESS');
           }

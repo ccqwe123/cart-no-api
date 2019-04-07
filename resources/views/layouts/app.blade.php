@@ -9,16 +9,20 @@ header("Pragma: no-cache");
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Admin | @yield('title')</title>
+        <title>@yield('title')</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         @include('includes.css')
     </head>
-    <body class="hold-transition skin-blue fixed sidebar-mini layout-top-nav">
-        @include('includes.nav')
+        @if(\Request::route()->getName() == 'users.user_profile.dashboard' || \Request::route()->getName() == 'users.user_profile.info' || \Request::route()->getName() == 'users.user_profile.address' || \Request::route()->getName() == 'users.user_profile.contact' || \Request::route()->getName() == 'users.user_profile.social' || \Request::route()->getName() == 'users.user_profile.product.list' || \Request::route()->getName() == 'users.user_profile.product.sell' || \Request::route()->getName() == 'users.user_profile.product.sold.list' || \Request::route()->getName() == 'users.user_profile.product.archive.list' || \Request::route()->getName() == 'jobs.index')
+        @include('includes.user-nav')
+        @else
+        @include('includes.default-nav')
+        @endif
         <div class="content-wrapper" style="">
             @yield('content')
         </div>
+    </div><!-- for wrapper--->
         @include('includes.js')
     </body>
 </html>
