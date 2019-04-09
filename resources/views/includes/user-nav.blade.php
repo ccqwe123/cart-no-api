@@ -19,6 +19,10 @@
 	{
 		padding:unset;
 	}
+	.personal-profile-padding
+	{
+		padding:20px !important;
+	}
 }
 @media (max-width: 991px) 
 {
@@ -30,6 +34,7 @@
 .title-personal
 {
 	color: #212121;
+	font-family: 'Comic Sans MS';
     font-size: 16px;
     margin-bottom: 16px;
     height: 20px;
@@ -40,6 +45,7 @@
 	overflow-wrap: break-word;
     word-wrap: break-word;
     -webkit-hyphens: auto;
+    font-family: 'Arial';
     overflow-y: auto;
     height: 154px;
     margin-left:10px;
@@ -76,11 +82,6 @@
             <li class=""><a href="/selling">Market</a></li>
             <li class=""><a href="/jobs">Search Jobs</a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
-            </div>
-          </form>
         </div>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
@@ -393,7 +394,7 @@
           </a>
         </li>
         <li>
-          <a href="pages/widgets.html">
+          <a href="#">
             <i class="fa fa-heart"></i> <span>Wishlist</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">0</small>
@@ -408,8 +409,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Coming Soon</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Coming Soon</a></li>
           </ul>
         </li>
         <li class="header">OTHERS</li>

@@ -185,6 +185,12 @@ class UserController extends Controller
     {
         return view("users.profile");
     }
+    public function useraddress(Request $request)
+    {
+        $state = DB::table('locations')
+            ->get();
+        return view("users.address",compact('state'));
+    }
     public function userdashboard(Request $request)
     {
         return view("users.user-dashboard");

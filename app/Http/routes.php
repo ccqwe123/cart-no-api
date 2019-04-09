@@ -58,7 +58,7 @@ Route::group(['middleware' => ['auth']], function() {
 	//user manage account function
 	Route::get('/dashboard', 'UserController@userdashboard')->name('users.user_profile.dashboard');
 	Route::get('/personal-info', 'UserController@userinfo')->name('users.user_profile.info');
-	Route::get('/personal-address', 'UserController@userinfo')->name('users.user_profile.address');
+	Route::get('/personal-address', 'UserController@useraddress')->name('users.user_profile.address');
 	Route::get('/personal-contact', 'UserController@userinfo')->name('users.user_profile.contact');
 	Route::get('/personal-social', 'UserController@userinfo')->name('users.user_profile.social');
 

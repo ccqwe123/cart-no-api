@@ -84,7 +84,7 @@
         <div class="box-body">
           <div class="title-personal"><span>Personal Information</span>
             <span>|</span>
-            <a href="#">EDIT</a>
+            <a href="#" class="btn-xs">EDIT</a>
           </div>
           <div class="user-info">
             <div class="user-info-item">May name is Here</div>
@@ -99,7 +99,7 @@
         <div class="box-body">
           <div class="title-personal"><span>Address</span>
             <div class="left-line">
-            <a href="#">EDIT</a>
+            <a href="#" class="btn-xs">EDIT</a>
           </div>
           </div>
           <div class="user-info">
@@ -113,7 +113,7 @@
         <div class="box-body">
           <div class="title-personal"><span>Contact Information</span>
             <span>|</span>
-            <a href="#">EDIT</a>
+            <a href="#" class="btn-xs">EDIT</a>
           </div>
           <div class="user-info">
             <div class="user-info-item"></div>
@@ -123,12 +123,12 @@
       </div>
     </div>
 </section>
-<section class="container-fluid" style="height: 550px; margin:15px;">
+<section class="container-fluid" style="">
   <div class="row">
     <div class="col-md-8">
       <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Latest Orders</h3>
+              <h3 class="box-title">Products</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>

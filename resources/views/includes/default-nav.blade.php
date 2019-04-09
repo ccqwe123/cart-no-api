@@ -16,17 +16,21 @@
             <li class=""><a href="/selling">Market</a></li>
             <li class=""><a href="/jobs">Search Jobs</a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
-            </div>
-          </form>
         </div>
         <!-- /.navbar-collapse -->
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <!-- Messages: style can be found in dropdown.less-->
+             @if (Auth::guest())
+            <li>
+                {{-- <a href="{{ url('/login') }}" class="btn btn-success btn-block outline btn-xs">Sign in!</a> --}}
+           <a href="{{ url('/login') }}" class="button-login">Sign in</a>
+        </li>
+        <li>
+            <a href="{{ url('/register') }}" class="button-login">Create Account!</a>
+        </li>
+        @else
             <li class="dropdown messages-menu">
               <!-- Menu toggle button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -165,7 +169,8 @@
                   </div>
                 </li>
               </ul>
-            </li>
+            </li><!-- end dropdown user-->
+            @endif
           </ul>
         </div>
         <!-- /.navbar-custom-menu -->
