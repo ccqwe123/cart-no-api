@@ -1,0 +1,312 @@
+.btn-success.outline {
+    color: #f1f1f1;
+}
+.dropdown-menu>li>a {
+    color: #fff;
+}
+.dropdown-menu {
+    background-color:#2c3e50;
+    max-height: 250px;
+}
+	.rating 
+  {
+    color: #faca51;
+  text-decoration: none;
+  font-size: 11px;
+  line-height: 20px;
+  }
+  .cbtn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.custom-button {
+     color: #fff; 
+     background-color: #f0ad4e; 
+     border-color: #eea236; 
+}
+.btn-warning {
+color: #fff;
+background-color: #f0ad4e;
+border-color: #eea236;
+}
+.btn-primary {
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+}
+.btn-success {
+color: #fff;
+background-color: #5cb85c;
+border-color: #4cae4c;
+}
+.btn-warning:hover, .btn-success:hover, .btn-primary:hover {
+text-decoration: none;
+}
+.btn-warning:visited, .btn-success:visited, .btn-primary:visited
+{
+	text-decoration: none;
+}
+.btn-warning:link, .btn-success:link, .btn-primary:link
+{
+	text-decoration: none;
+}
+.media
+{
+	padding:10px;
+}
+/*.thumbs {
+	margin-top:10px;
+    display: inline-block;
+    vertical-align: top;
+}*/
+.product-gallery
+{
+	padding-top:10px;
+}
+.wishlistbtn
+{
+	border: none;
+	background-color: transparent;
+	position: absolute;
+	right: 30px;
+	top: 20px;
+	/*left: 0;*/
+	font-size: 25px;
+	float: right;
+
+}
+.wishlistbtn i:hover
+{
+	color:red;
+}
+.wishlistbtn:focus
+{
+	outline:0;
+}
+.location-a
+{
+	display: table-cell;
+    font-size: 15px;
+    color: #757575;
+    font-weight: 500;
+    font-family: Roboto-Medium;
+    width: 300px;
+}
+.location-image
+{
+	padding-right: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 24px;
+}
+.location
+{
+	display: table;
+    width: 100%;
+    align-items: center;
+}
+.location-address
+{
+	max-width: 180px;
+    word-break: break-word;
+}
+.tabbable-panel {
+  border:1px solid #eee;
+  padding: 10px;
+}
+
+/* Default mode */
+.tabbable-line > .nav-tabs {
+  border: none;
+  margin: 0px;
+}
+.tabbable-line > .nav-tabs > li {
+  margin-right: 2px;
+}
+.tabbable-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: #737373;
+}
+.tabbable-line > .nav-tabs > li > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {
+  border-bottom: 4px solid #fbcdcf;
+}
+.tabbable-line > .nav-tabs > li.open > a, .tabbable-line > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.open > a > i, .tabbable-line > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open .dropdown-menu, .tabbable-line > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+.tabbable-line > .nav-tabs > li.active {
+  border-bottom: 4px solid #f3565d;
+  position: relative;
+}
+.tabbable-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+.tabbable-line > .tab-content {
+  margin-top: -3px;
+  background-color: #fff;
+  border: 0;
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+}
+.portlet .tabbable-line > .tab-content {
+  padding-bottom: 0;
+}
+
+/* Below tabs mode */
+
+.tabbable-line.tabs-below > .nav-tabs > li {
+  border-top: 4px solid transparent;
+}
+.tabbable-line.tabs-below > .nav-tabs > li > a {
+  margin-top: 0;
+}
+.tabbable-line.tabs-below > .nav-tabs > li:hover {
+  border-bottom: 0;
+  border-top: 4px solid #fbcdcf;
+}
+.tabbable-line.tabs-below > .nav-tabs > li.active {
+  margin-bottom: -2px;
+  border-bottom: 0;
+  border-top: 4px solid #f3565d;
+}
+.tabbable-line.tabs-below > .tab-content {
+  margin-top: -10px;
+  border-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+[class*="col-"] {
+    background-clip: padding-box;
+    border: 5px solid transparent;
+}
+.col-md-3
+{
+  border: unset !important;
+}
+.page-loc
+{
+    height: 30px;
+    border-bottom: 1px solid #EFF0F5;
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.breadcrumb {
+    padding: 0px;
+	background: rgb(239, 240, 245);
+	padding-left:20px;
+	min-height: 30px;
+	margin-bottom: 5px;
+}
+.breadcrumb a
+{
+	color:#46b8da;
+}
+.breadcrumb a:hover
+{
+	text-decoration: none;
+}
+.breadcrumb>li+li:before
+{
+	content: ""
+}
+.breadcrumb>li
+{
+	color:gray;
+}
+
+@media (max-width: 558px)
+{
+	.breadcrumb {
+		display: none;
+	}
+}
+.widget-area {
+background-color: #fff;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-ms-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-o-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+float: left;
+margin-top: 30px;
+position: relative;
+width: 100%;
+}
+
+
+@media (min-width: 768px) {
+  .comment-list .arrow:after, .comment-list .arrow:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+  }
+  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+    border-left: 0;
+  }
+  /*****Left Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.left:before {
+    left: 0px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-right-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.left:after {
+    left: 1px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-right-color: #FFFFFF;
+    border-width: 15px;
+  }
+  /*****Right Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-left-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+  }
+}

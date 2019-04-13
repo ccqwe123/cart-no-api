@@ -1,0 +1,223 @@
+ body {
+            font-family: 'Lato';
+            /*padding-top: 70px;*/
+        }
+
+        .fa-btn {
+            margin-right: 6px;
+        }
+        body {
+    font-family:hind;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:montserrat;
+}
+
+p{
+    font-size:17px;   
+}
+/* Dropdown */
+
+  
+.navbar {
+    border-radius: 0;
+    font-family:montserrat;
+    font-weight:600;
+    border-bottom: 1px solid #ff3b00;
+}
+
+.navbar-inverse {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-nav>li>a:hover {
+    background-color:#34495e;
+}
+
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a:focus {
+    background-color: #34495e;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus {
+    background-color: #34495e;
+}
+
+.dropdown-menu {
+    background-color:#2c3e50;
+}
+
+.dropdown-menu>li>a {
+    color: #fff;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #34495e;
+}
+
+.btn-margin-left {
+    margin-left: 5px;
+}
+.btn-margin-right {
+    margin-right: 10px;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #c0392b;
+    border-color: #c0392b;
+}
+
+.btn-danger:hover {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+.btn-success:hover {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-primary:hover {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.badge-danger {
+    background-color: #e74c3c;
+}
+.navbar-btn {
+    height: 35px;
+}
+@media (max-width: 979px) 
+{
+  .nav-collapse .dropdown-menu a {
+    padding: 9px 15px;
+    font-weight: bold;
+    color: #777777;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+  }
+  .nav-collapse .btn {
+    padding: 4px 10px 4px;
+    font-weight: normal;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+  }
+  .nav-collapse .dropdown-menu li + li a {
+    margin-bottom: 2px;
+  }
+
+  .nav-collapse .dropdown-menu a:hover,
+  .nav-collapse .dropdown-menu a:focus {
+    background-color: #f2f2f2;
+  }
+
+  .navbar-inverse .nav-collapse .dropdown-menu a:hover,
+  .navbar-inverse .nav-collapse .dropdown-menu a:focus {
+    background-color: #111111;
+  }
+  .nav-collapse.in .btn-group {
+    padding: 0;
+    margin-top: 5px;
+  }
+  .nav-collapse .dropdown-menu {
+    position: static;
+    top: auto;
+    left: auto;
+    display: none;
+    float: none;
+    max-width: none;
+    padding: 0;
+    margin: 0 15px;
+    background-color: transparent;
+    border: none;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+  }
+  .nav-collapse .open > .dropdown-menu {
+    display: block;
+  }
+  .nav-collapse .dropdown-menu:before,
+  .nav-collapse .dropdown-menu:after {
+    display: none;
+  }
+  .nav-collapse .dropdown-menu .divider {
+    display: none;
+  }
+  .nav-collapse .nav > li > .dropdown-menu:before,
+  .nav-collapse .nav > li > .dropdown-menu:after {
+    display: none;
+  }
+ } 
+ @media (max-width: 767px) {
+  .navbar-nav .show .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+}
+/* OUTLINE BUTTON */
+.outline {
+    background-color: transparent;
+    border-radius:50px;
+    color: inherit;
+    transition: all .25s;
+}
+.btn-primary.outline {
+    color: #428bca;
+}
+.btn-success.outline {
+    color: #5cb85c;
+}
+.btn-info.outline {
+    color: #5bc0de;
+}
+.btn-warning.outline {
+    color: #f0ad4e;
+}
+.btn-danger.outline {
+    color: #d9534f;
+}
+.btn-primary.outline:hover,
+.btn-success.outline:hover,
+.btn-info.outline:hover,
+.btn-warning.outline:hover,
+.btn-danger.outline:hover {
+    color: #fff;
+}
