@@ -14,7 +14,7 @@ header("Pragma: no-cache");
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         @include('includes.css')
     </head>
-        @if(\Request::route()->getName() == 'users.user_profile.dashboard' || \Request::route()->getName() == 'users.user_profile.info' || \Request::route()->getName() == 'users.user_profile.address' || \Request::route()->getName() == 'users.user_profile.contact' || \Request::route()->getName() == 'users.user_profile.social' || \Request::route()->getName() == 'users.user_profile.product.list' || \Request::route()->getName() == 'users.user_profile.product.sell' || \Request::route()->getName() == 'users.user_profile.product.sold.list' || \Request::route()->getName() == 'users.user_profile.product.archive.list' || \Request::route()->getName() == 'jobs.index')
+        @if(\Request::route()->getName() == 'users.user_profile.dashboard' || \Request::route()->getName() == 'users.user_profile.info' || \Request::route()->getName() == 'users.user_profile.address' || \Request::route()->getName() == 'users.user_profile.contact' || \Request::route()->getName() == 'users.user_profile.social' || \Request::route()->getName() == 'users.user_profile.product.list' || \Request::route()->getName() == 'users.user_profile.product.sell' || \Request::route()->getName() == 'users.user_profile.product.sold.list' || \Request::route()->getName() == 'users.user_profile.product.archive.list' || \Request::route()->getName() == 'jobs.index' || \Request::route()->getName() == 'users.user_profile.product.edit')
         @include('includes.user-nav')
         @else
         @include('includes.default-nav')

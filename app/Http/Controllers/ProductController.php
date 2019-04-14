@@ -8,6 +8,7 @@ use App\Images;
 use App\UserRoles;
 use App\Products;
 use App\Locations;
+use App\Category;
 use App\Privileges;
 use App\RolePrivileges;
 use App\VerifyUser;
@@ -23,6 +24,7 @@ use Session;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 class ProductController extends Controller
 {
     /**
@@ -32,8 +34,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Products::where('status',0)->get();
-        return view("user-profile.product_list",['products'=>$products]);
+        $products = Products::with('images')
+
+                ->get();
+        $locations = Locations::orderBy('state','desc')->get();
+        $category = Category::get();
+        return view("user-profile.product_list",[
+            'products'=>$products,
+            'locations'=>$locations,
+            'category'=>$category,
+        ]);
+        // return view("user-profile.product_list",['products'=>$products]);
     }
     public function adminindex()
     {
@@ -52,7 +63,8 @@ class ProductController extends Controller
     public function create()
     {
         $locations = Locations::orderBy('state','desc')->get();
-        return view("products.add_product",['locations'=>$locations]);
+        $category = Category::get();
+        return view("products.add_product",['locations'=>$locations,'category'=>$category,]);
     }
 
     /**
@@ -89,7 +101,16 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Products::with('images')
+                ->where('id',$id)
+                ->get();
+        $locations = Locations::orderBy('state','desc')->get();
+        $category = Category::get();
+        return view("products.edit_product",[
+            'product'=>$product,
+            'locations'=>$locations,
+            'category'=>$category,
+        ]);
     }
 
     /**
@@ -99,9 +120,61 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'product_name' => 'required|max:20|min:3',    
+            'price' => 'required|max:100|min:1',    
+            'location' => 'required', 
+            'payment' => 'required', 
+            'category' => 'required', 
+            'returnproduct' => 'required', 
+            'description' => 'required', 
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/products/'.$request->product_id.'/edit')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        $x = Products::find($request->product_id);
+        $x->category_id = $request->category;
+        $x->product_name = $request->product_name;
+        $x->product_description = $request->description;
+        $x->price = $request->price;
+        $x->payment_method = $request->payment;
+        $x->return_item = $request->returnproduct;
+        $x->location = $request->location;
+        $x->address = $request->address;
+        $x->latitude = $request->latitude;
+        $x->longitude = $request->longitude;
+        $x->update();
+
+       
+        $files = $request->file('files');
+        log::info($files);
+        if(count($files) > 0)
+        {
+            $files = $request->file('files');
+            if($request->hasfile('files')){ 
+                DB::table('images')
+                ->where('product_id',$request->product_id)
+                ->delete();
+                $destinationPath = public_path().'/uploads/products';
+                foreach($files as $file){
+                    $image = new Images;
+                    $filename = \Carbon\Carbon::now()->timestamp.$file->getClientOriginalName();
+                    $file->move($destinationPath,$filename);
+                    $image->photo = $filename;
+                    $image->product_id = $x->id;
+                    $image->save();
+                }
+            }
+        }else
+        {
+             
+        }
+        return redirect()->back()->with('flash_message', 'Product Updated!!');
     }
 
     /**
@@ -167,5 +240,6 @@ class ProductController extends Controller
                 $image->save();
             } 
         } 
+        return Redirect::back()->withErrors(['flash_success', 'The Message']);
     }
 }

@@ -64,6 +64,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 	//user product function
 	Route::get('/products/list', 'ProductController@index')->name('users.user_profile.product.list');
+	Route::get('/products/{product_id}/edit', 'ProductController@edit')->name('users.user_profile.product.edit');
+	Route::post('/products/update','ProductController@update')->name('users.user_profile.product.update');
 		// sell product function
 		Route::get('/sell-product', 'ProductController@create')->name('users.user_profile.product.sell');
 		Route::post('/post-product', 'ProductController@post_product');

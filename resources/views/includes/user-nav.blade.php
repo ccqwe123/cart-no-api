@@ -282,8 +282,8 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ Auth::user()->full_name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -291,8 +291,8 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ Auth::user()->full_name }}
+                  <small>Member since {{ Auth::user()->created_at->format('M-d-Y') }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -373,7 +373,7 @@
             <li class="{{(\Request::route()->getName() == 'users.user_profile.social') ? 'active' : ''}}"><a href="{{route('users.user_profile.social')}}"><i class="fa fa-circle-o"></i> Social Media</a></li>
           </ul>
         </li>
-        <li class="treeview  {{ (\Request::route()->getName() == 'users.user_profile.product.list') || (\Request::route()->getName() == 'users.user_profile.product.sell') || (\Request::route()->getName() == 'users.user_profile.product.sold.list') || (\Request::route()->getName() == 'users.user_profile.product.archive.list') ? 'active menu-open' : '' }}">
+        <li class="treeview  {{ (\Request::route()->getName() == 'users.user_profile.product.list') || (\Request::route()->getName() == 'users.user_profile.product.sell') || (\Request::route()->getName() == 'users.user_profile.product.sold.list') || (\Request::route()->getName() == 'users.user_profile.product.archive.list' || \Request::route()->getName() == 'users.user_profile.product.edit') ? 'active menu-open' : '' }}">
           <a href="#">
             <i class="fa fa-shopping-bag"></i>
             <span> My Products</span>
@@ -382,7 +382,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{(\Request::route()->getName() == 'users.user_profile.product.list') ? 'active' : ''}}"><a href="{{route('users.user_profile.product.list')}}"><i class="fa fa-circle-o"></i> Product List</a></li>
+            <li class="{{(\Request::route()->getName() == 'users.user_profile.product.list' || \Request::route()->getName() == 'users.user_profile.product.edit') ? 'active' : ''}}"><a href="{{route('users.user_profile.product.list')}}"><i class="fa fa-circle-o"></i> Product List</a></li>
             <li class="{{(\Request::route()->getName() == 'users.user_profile.product.sell') ? 'active' : ''}}"><a href="{{route('users.user_profile.product.sell')}}"><i class="fa fa-circle-o"></i> Sell Something</a></li>
             <li class="{{(\Request::route()->getName() == 'users.user_profile.product.sold.list') ? 'active' : ''}}"><a href="{{route('users.user_profile.product.sold.list')}}"><i class="fa fa-circle-o"></i> Sold items</a></li>
             <li class="{{(\Request::route()->getName() == 'users.user_profile.product.archive.list') ? 'active' : ''}}"><a href="{{route('users.user_profile.product.archive.list')}}"><i class="fa fa-circle-o"></i> Archive</a></li>

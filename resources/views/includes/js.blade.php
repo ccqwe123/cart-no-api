@@ -27,10 +27,5 @@
         ],
 	  maxHeight: null
 		});
-	$('#summernote2').summernote({
-	  height: 200,
-	  minHeight: null,
-	  maxHeight: null
-		});
 </script>
 @yield('js')
