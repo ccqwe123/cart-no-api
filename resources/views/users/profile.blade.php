@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('title', 'My Profile') 
+<style type="text/css">
+  
+
+
+</style>
 @section('content')
+
 <div class="container-fluid need-top">
 	<div class="row">
 		<section class="content-header">
@@ -21,8 +27,20 @@
               <h3 class="box-title">Edit Personal Profile</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body personal-profile-padding" style="padding:80px; ">
+            <div class="box-body">
             	<div class="row">
+                <div class="co-md-12">
+                  <div style="text-align: center">
+                    <div  class="img_caption" style="margin: 20px auto; height: 150px; width: 150px; overflow: hidden; position: relative; outline: 5px solid #f1f2f6; ">
+                          <img src="{{URL::asset('/uploads/users/anon.png' ) }}" id="prof_id" class="img-responsive" alt=""  style="  height: 150px; width: auto;">
+                          <label for="image_id" class="caption"><i class="fa fa-camera hidden"></i> Add Photo</label>
+                          <label class="caption-cam"><i class="fa fa-camera"></i></label>
+                        </div>
+
+                    {{ Form::hidden('user_photo_image') }}
+                    {!! Form::file('user_photo', array('id'=>'image_id', 'class'=>'hidden')) !!} 
+                  </div>
+                </div>
             		<div class="col-md-6">
             			<div class="form-group">
 		                  <label for="exampleInputEmail1">Full Name</label>
@@ -31,8 +49,8 @@
             		</div>
             		<div class="col-md-6">
             			<div class="form-group">
-		                  <label for="exampleInputEmail1">Gender</label>
-		                  <select name="gender" class="form-control">
+		                  <label for="gender">Gender</label>
+		                  <select name="gender" class="form-control" id="gender">
 		                  	<option>Male</option>
 		                  	<option>Female</option>
 		                  </select>
@@ -117,5 +135,29 @@
 <script type="text/javascript">
 	$('#datepicker').datepicker({
     })
+  function readURL(input) {
+
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#prof_id').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#image_id").change(function() {
+      readURL(this);
+      $("#remove_image").removeClass('hidden');
+    });
+    $("#remove_image").click(function() {
+      $('#image_id').val(''); 
+      $('#prof_id').attr('src', '/uploads/users/anon.png');
+      $("#remove_image").addClass('hidden');
+    });
+
+
+
 </script>
 @endsection

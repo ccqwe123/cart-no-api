@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Add Product') 
+@section('title', 'Edit Product') 
 <link href="{{ URL::asset('css/summernote.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('css/bootstrap-select.min.css') }}" rel="stylesheet">
 <style type="text/css">
@@ -66,7 +66,7 @@ a.selected.active
 								<input type="text" class="form-control" name="product_name" placeholder="Name of Product" value="{{ $product[0]->product_name }}">
 								<input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}">
 								@if (count($errors) > 0)
-								<span class="errors" style="color:#FF0000">* {{$errors->first('product_name')}}</span>
+								<span class="errors" style="color:#FF0000"> {{$errors->first('product_name')}}</span>
 								@endif
 							</div>
 						</div>
@@ -75,7 +75,7 @@ a.selected.active
 								<label for="price">Price:</label>
 								<input type="number" class="form-control" name="price" placeholder="0.00" value="{{ number_format($product[0]->price) }}">
 								@if (count($errors) > 0)
-								<span class="errors" style="color:#FF0000">* {{$errors->first('price')}}</span>
+								<span class="errors" style="color:#FF0000"> {{$errors->first('price')}}</span>
 								@endif
 							</div>
 						</div>
@@ -89,7 +89,7 @@ a.selected.active
 									@endforeach
 								</select>
 								@if (count($errors) > 0)
-								<span class="errors" style="color:#FF0000">* {{$errors->first('location')}}</span>
+								<span class="errors" style="color:#FF0000"> {{$errors->first('location')}}</span>
 								@endif
 							</div>
 						</div>
@@ -102,16 +102,16 @@ a.selected.active
 									<option value="meetup" @if($product[0]->payment_method == 'meetup') selected @endif>Meetup</option>
 								</select>
 								@if (count($errors) > 0)
-								<span class="errors" style="color:#FF0000">* {{$errors->first('payment')}}</span>
+								<span class="errors" style="color:#FF0000"> {{$errors->first('payment')}}</span>
 								@endif
 							</div>
 						</div>
-						<div id="crimesandincidents">
+						<div  id="productlist">
 						<div class="col-md-12 meetme  @if($product[0]->payment_method == 'meetup')  @else hidden @endif">
 							<div class="form-group">
 								<label>Get Meetup place by clicking on the map:</label>
 								<i class="fa fa-spinner fa-spin"></i>
-								<div id="map_edit" style="height: 450px"></div>
+								<div id="map_edit{{ $product[0]->id }}" style="height: 450px"></div>
 							</div>
 						</div>
                             <div class="col-md-12 meetme @if($product[0]->payment_method == 'meetup')  @else hidden @endif">
@@ -129,7 +129,7 @@ a.selected.active
 									<option value="1">2</option>
 								</select>
 								@if (count($errors) > 0)
-								<span class="errors" style="color:#FF0000">* {{$errors->first('category')}}</span>
+								<span class="errors" style="color:#FF0000"> {{$errors->first('category')}}</span>
 								@endif
 							</div>
 						</div>
@@ -138,7 +138,7 @@ a.selected.active
 								<label for="category">Return Product (days)</label>
 								<input type="number" name="returnproduct" class="form-control" placeholder="0 = Not returnable" value="{{ $product[0]->return_item }}">
 								@if (count($errors) > 0)
-								<span class="errors" style="color:#FF0000">* {{$errors->first('returnproduct')}}</span>
+								<span class="errors" style="color:#FF0000"> {{$errors->first('returnproduct')}}</span>
 							@endif
 							</div>
 						</div>
@@ -153,7 +153,7 @@ a.selected.active
 							@endforeach
 							<a href="#" class="btn-danger button-clear" id="clearbutton">CLEAR</a>
 							@if (count($errors) > 0)
-								<span class="errors" style="color:#FF0000">* {{$errors->first('files')}}</span>
+								<span class="errors" style="color:#FF0000"> {{$errors->first('files')}}</span>
 							@endif
 						</div>
 					</div>
@@ -162,7 +162,7 @@ a.selected.active
 							<label for="description">Item Description</label>
 							<textarea class="input-block-level" id="summernote" name="description" id="description">{{ $product[0]->product_description }}</textarea>
 							@if (count($errors) > 0)
-								<span class="errors" style="color:#FF0000">* {{$errors->first('description')}}</span>
+								<span class="errors" style="color:#FF0000"> {{$errors->first('description')}}</span>
 							@endif
 						</div>
 					</div>	
@@ -180,46 +180,115 @@ a.selected.active
 	</div>
 </div>
 <input type="text" name="product" id="product" value="{{ $product[0] }}">
+@endsection
+@section('js')
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.payment-method').change(function() {
+    if(this.value == "meetup")
+    { 
+      $('.button-submit').attr('disabled',true);
+      $('.meetme').removeClass('hidden'); 
+    }else
+    {
+      $('.meetme').addClass('hidden');
+      $('.address').val("");
+      $('.latitude').val("");
+      $('.longitude').val("");
+
+    }
+  });
+  $(document).ready(function() {
+
+    if (window.File && window.FileList && window.FileReader) {
+      $("#files").on("change", function(e) {
+        var files = e.target.files,
+        filesLength = files.length;
+        for (var i = 0; i < filesLength; i++) {
+          var f = files[i]
+          var fileReader = new FileReader();
+          fileReader.onload = (function(e) {
+            var file = e.target;
+            $("<span class=\"pip\">" +
+              "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+              "<br/>" +
+              "</span>").insertAfter("#files");
+
+            // $(".remove").click(function(){
+            //  $(this).parent(".pip").remove();
+            // });
+            $('.button-clear').show();
+
+          });
+          fileReader.readAsDataURL(f);
+        }
+
+      });
+    } else {
+      alert("Your browser doesn't support to File API")
+    }
+    $("#files").on("click", function() {
+      $('.pip').hide();
+          $('#files').val("");
+          $('#clearbutton').hide();
+    });
+    $('.selectpicker').selectpicker();
+    
+   $('.button-clear').click(function() {
+      var valu = $(this).attr("id");
+            $('.pip').hide();
+            $('#files').val("");
+            $(this).hide();
+        });
+
+  });
+  });
+</script>
+
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyqWS3s8tMgdGkx4Yj9IdJ9vzCrmWQqUo">
 </script>
 {{Html::script('js/vue.min.js')}}
 {{Html::script('js/axios.min.js')}}
-<script type="text/javascript">
-	var myLatLng = {lat: 16.714983, lng: 121.553719};
-	var app = new Vue({
-        el: '#crimesandincidents',
+<script>
+    var myLatLng = {lat: 16.714983, lng: 121.553719};
+
+    var app = new Vue({
+        el: '#productlist',
         delimiters: ["[[","]]"],
         data: {
-            image_add: '',
-            isLoadingGetLatLng_add: false,
-            latitude_add: '',
-            longitude_add: '',
-            address_add: '',
+            image_edit: '',
+            isLoadingGetLatLng_edit: false,
             latitude_edit: '',
+            longitude_edit: '',
+            address_edit: '',
             markers: '',
             id_edit: '',
-            @foreach($product as $prod)
-            gMap_edit{{$prod->id}}: '',
+            isLoadingGetAddress_edit: false,
+            @foreach($product as $products)
+            gMap_edit{{$products->id}}: '',
             @endforeach
         },
         mounted(){
+        	
             let vm = this;
-            vm.gMap_add = new google.maps.Map(document.getElementById('map_edit'), {
-              zoom: 13,
-              center: myLatLng,
-            });
 
-            @foreach($product as $prod)
-            vm.gMap_edit{{$prod->id}} = new google.maps.Map(document.getElementById('map_edit{{$prod->id}}'), {
+            @foreach($product as $products)
+            vm.gMap_edit{{$products->id}} = new google.maps.Map(document.getElementById('map_edit{{$products->id}}'), {
               zoom: 14,
-              center: {lat: {{$prod->latitude}}, lng:  {{$prod->longitude}}}
+              @if($products->latitude=='' && $products->longitude=='')
+              center: {lat: 16.714983, lng: 121.553719}
+              @else
+              center: {lat: {{$products->latitude}}, lng:  {{$products->longitude}}}
+              @endif
             });
             this.markers = new google.maps.Marker({
-              position: {lat: {{$prod->latitude}}, lng:  {{$prod->longitude}}},
-              map: this.gMap_edit{{$prod->id}},
+              position: {lat: {{$products->latitude}}, lng:  {{$products->longitude}}},
+              map: this.gMap_edit{{$products->id}},
             });
-            google.maps.event.addListener(this.gMap_edit{{$prod->id}}, "click", function (event) {
+            google.maps.event.addListener(this.gMap_edit{{$products->id}}, "click", function (event) {
+
+                $('.button-submit').attr('disabled',false);
                 vm.latitude_edit = parseFloat(event.latLng.lat()).toFixed(7);
                 vm.longitude_edit = parseFloat(event.latLng.lng()).toFixed(7);
                 myLatLng = {lat: event.latLng.lat(), lng: event.latLng.lng()};
@@ -228,12 +297,14 @@ a.selected.active
             @endforeach
         },
         methods: {
-            async load(product) {
-                this.id_edit = product.id;
-                this.address_edit = product.address;
-                this.latitude_edit = product.latitude;
-                this.longitude_edit = product.longitude;
+
+            report_edit(products){
+                this.id_edit = products.id;
+                this.address_edit = products.address;
+                this.latitude_edit = products.latitude;
+                this.longitude_edit = products.longitude;
             },
+
             async addressDetailsCoordsEdit() {
                 vm = this;
                 try{
@@ -242,88 +313,33 @@ a.selected.active
                     if (this.markers && this.markers.setMap) {
                         this.markers.setMap(null);
                     }
-                    @foreach($product as $prod)
-                        if({{$prod->id}} == vm.id_edit){
-                            this.markers = new google.maps.Marker({
-                              position: myLatLng,
-                              map: vm.gMap_edit{{$prod->id}},
-                            });
-                        }
-                    @endforeach
+
+                     this.markers = new google.maps.Marker({
+                      position: myLatLng,
+                      map: vm.gMap_edit{{$product[0]->id}} })
+
                     /*getting the municipal and province from the longitude and latitude of the address*/
                     const responseData = await axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+vm.latitude_edit+','+vm.longitude_edit+'&key=AIzaSyAyqWS3s8tMgdGkx4Yj9IdJ9vzCrmWQqUo');
                     vm.address_edit = responseData.data.results[0].formatted_address;
-
+                    vm.isLoadingGetAddress_edit = false;
                 } catch (error) {
-
+                    vm.isLoadingGetAddress_edit = true;
                 }
             },
-      
+          
         }
     });
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script type="text/javascript">
-	$('.payment-method').change(function() {
-		if(this.value == "meetup")
-		{	
-			$('.button-submit').attr('disabled',true);
-			$('.meetme').removeClass('hidden');	
-		}else
-		{
-			$('.meetme').addClass('hidden');
-			$('.address').val("");
-			$('.latitude').val("");
-			$('.longitude').val("");
-
-		}
-	});
-	$(document).ready(function() {
-		$('#summernote').summernote({
-	  height: 200,
-	  minHeight: null,
-	  maxHeight: null
-		});
-
-		if (window.File && window.FileList && window.FileReader) {
-			$("#files").on("change", function(e) {
-				var files = e.target.files,
-				filesLength = files.length;
-				for (var i = 0; i < filesLength; i++) {
-					var f = files[i]
-					var fileReader = new FileReader();
-					fileReader.onload = (function(e) {
-						var file = e.target;
-						$("<span class=\"pip\">" +
-							"<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-							"<br/>" +
-							"</span>").insertAfter("#files");
-
-						// $(".remove").click(function(){
-						// 	$(this).parent(".pip").remove();
-						// });
-						$('.button-clear').show();
-
-					});
-					fileReader.readAsDataURL(f);
-				}
-
-			});
-		} else {
-			alert("Your browser doesn't support to File API")
-		}
-		$("#files").on("click", function() {
-			$('.pip').hide();
-	        $('#files').val("");
-	        $('#clearbutton').hide();
-		});
-		$('.selectpicker').selectpicker();
-		
-		$('#clearbutton').on("click", function() {
-	        $('.pip').hide();
-	        $('#files').val("");
-	        $(this).hide();
-    	});
-	});
+    $(function () {
+/*           $('#esaktable').DataTable({
+            "bPaginate": false,
+            "bInfo" : false,
+            "searching": false
+          }); */
+         /*  oTable = $('#myTable').DataTable({
+        "order": [[ 0, "asc" ]],
+      }); */
+        //   $("#larasearch").appendTo("#search-d");
+        //   $("#esaktable_filter label").appendTo("#search-d");
+    });
 </script>
 @endsection

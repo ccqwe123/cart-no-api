@@ -41,5 +41,39 @@ a.button-login:hover {
 {
 	height: 150px;
 }
+.caption{
+    display: none;
+    transition: background-color .5s;
+  }
+  .caption-cam{
+    float:right;
+    display:block;
+    color:#fff;
+    position: absolute;
+    /* bottom: 5px; */
+    bottom: -25px;
+    /* left: 7px; */
+    left: 15px;
+    transition: bottom .5s;
+  }
+  .img_caption:hover .caption-cam{
+    bottom: 5px;
+  }
+  .img_caption:hover .caption {
+    display: block;
+    height: 45px;
+    text-align: center;
+    width: 100%;
+    background-color: #00000042;
+    position: absolute;
+    bottom: -5px;
+    padding-top: 15px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .caption:hover{
+    /* background-color: #00000042 !important; */
+    background-color: #00000069 !important;
+  }
 </style>
 @yield('css')

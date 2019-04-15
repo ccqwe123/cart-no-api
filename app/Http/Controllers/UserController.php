@@ -208,6 +208,7 @@ class UserController extends Controller
     }
     public function userinfo(Request $request)
     {
+        
         return view("users.profile");
     }
     public function useraddress(Request $request)
