@@ -75,5 +75,11 @@ a.button-login:hover {
     /* background-color: #00000042 !important; */
     background-color: #00000069 !important;
   }
+  @media (max-width: 767px){
+    .main-sidebar, .fixed .content-wrapper {
+    padding-top: 50px;
+    }
+  }
+
 </style>
 @yield('css')

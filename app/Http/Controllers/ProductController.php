@@ -63,7 +63,6 @@ class ProductController extends Controller
     public function create()
     {
         $locations = Locations::orderBy('state','desc')->get()->pluck('state', 'id')->toArray();
-        log::info($locations);
         $category = Category::get();
         return view("products.add_product",['locations'=>$locations,'category'=>$category,]);
     }
