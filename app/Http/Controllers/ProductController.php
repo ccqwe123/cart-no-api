@@ -62,7 +62,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $locations = Locations::orderBy('state','desc')->get();
+        $locations = Locations::orderBy('state','desc')->get()->pluck('state', 'id')->toArray();
+        log::info($locations);
         $category = Category::get();
         return view("products.add_product",['locations'=>$locations,'category'=>$category,]);
     }
@@ -240,6 +241,6 @@ class ProductController extends Controller
                 $image->save();
             } 
         } 
-        return Redirect::back()->withErrors(['flash_success', 'The Message']);
+        return redirect()->back()->with('flash_message', 'Product Added!!');
     }
 }
