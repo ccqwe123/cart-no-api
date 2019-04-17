@@ -61,7 +61,7 @@
                   </ul>
                   <!-- /.menu -->
                 </li>
-                <li class="footer"><a href="#">See All Messages</a></li>
+                <li class="footer"><a href="{{route('users.user_profile.chat')}}">See All Messages</a></li>
               </ul>
             </li>
             <!-- /.messages-menu -->

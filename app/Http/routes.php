@@ -71,7 +71,8 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::post('/post-product', 'ProductController@post_product');
 	Route::get('/products/sold/list', 'ProductController@solditems')->name('users.user_profile.product.sold.list');
 	Route::get('/products/archive/list', 'ProductController@archive_product_list')->name('users.user_profile.product.archive.list');
-
+	Route::get('/user/chat/', 'UserController@chatsystem')->name('users.user_profile.chat');
+	
 	//user Post job function
 	Route::resource('/jobs', 'JobsController');
 

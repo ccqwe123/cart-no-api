@@ -225,4 +225,9 @@ class UserController extends Controller
         log::info($products);
         return view("user-profile.user-dashboard",['dbuser'=>$dbuser,'products'=>$products]);
     }
+    public function chatsystem()
+    {
+        $user = User::where("id",Auth::user()->id)->first();
+        return view("users.chat",['user'=>$user]);
+    }
 }
