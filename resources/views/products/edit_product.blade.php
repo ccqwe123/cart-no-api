@@ -246,7 +246,7 @@ a.selected.active
 </script>
 
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyqWS3s8tMgdGkx4Yj9IdJ9vzCrmWQqUo">
+    src="https://maps.googleapis.com/maps/api/js?key='Your Google Map API'">
 </script>
 {{Html::script('js/vue.min.js')}}
 {{Html::script('js/axios.min.js')}}
